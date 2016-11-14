@@ -16,6 +16,10 @@ from transistor.ttip120 import *
 from transistor.ttip31c import *
 
 #Creation des variable d'objet
+#Divers
+Resistance = Resistance()
+Condensateur = Condensateur()
+#Transistors
 T2n2222 = T2n2222()
 Ttip120 = Ttip120()
 Ttip31c = Ttip31c()
