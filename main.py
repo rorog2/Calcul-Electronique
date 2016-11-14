@@ -1,3 +1,5 @@
+# -*-coding:Latin-1 -*
+
 #Importation des modules
 import sys
 import os
