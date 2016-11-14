@@ -16,7 +16,7 @@ info = [
 "\nCARACTRISTIQUE DU TRANSISTOR {}",#0
 "Sa tension maximal est de {} V",#1
 "Son courant maximal est de {} A",#2
-"Ses tension de saturations entre le colecteur et l'éméteur sont:"#3
+"Ses tension de saturations entre le colecteur et l'éméteur sont:",#3
 "Sa tension de saturation entre le colecteur et l'éméteur est: {} V",#4
 "Ses tension de saturation entre l'éméteur et la base sont:",#5
 "Sa tension de saturation entre l'éméteur et la base est: {} V",#6

@@ -25,7 +25,7 @@ Ttip31c = Ttip31c()
 #Code
 
 T2n2222.afficherCaracteristiques()
-Ttip120.afficherCaracteristiques()
-Ttip31c.afficherCaracteristiques()
+#Ttip120.afficherCaracteristiques()
+#Ttip31c.afficherCaracteristiques()
 
 input("Appuyer sur une touche pour continuer...")
