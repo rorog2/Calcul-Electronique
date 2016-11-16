@@ -1,4 +1,4 @@
-import locale
+﻿import locale
 
 #Langue du programme
 l1 = locale.getdefaultlocale()
@@ -37,19 +37,19 @@ class T2n2222:
 
     def calculResistanceBase(self):
         #DEMANDE DES INFORMATIONS
-        print("De quelle valeur de Ic votre montage ce raproche le plus ?")
+        print(demande[0])
         print(" 1 - 150 mA")
         print(" 2 - 500 mA\n")
-        self.m_vbe_reponse = float(input("RÃ©pondez par 1 ou 2: "))
-        self.m_icsat = float(input("\nQuelle valeur de Ic est dans votre montage ? "))
-        print("\nQuelle valeur de beta correspond Ã  votre montage")
+        self.m_vbe_reponse = float(input(reponse[0]))
+        self.m_icsat = float(input(demande[1]))
+        print(demande[2])
         print(" 1 - IC: 0.1 mA, Vce: 10 V - 35")
         print(" 2 - IC: 1 mA, Vce: 10 V - 50")
         print(" 3 - IC: 10 mA, Vce: 10 V - 75")
         print(" 4 - IC: 150 mA, Vce: 1 V - 50")
         print(" 5 - IC: 500 mA, Vce: 10 V - 30")
-        self.m_beta_reponse = float(input("\nRÃ©pondez par un chiffre entre 1 et 5: "))
-        self.m_e = float(input("\nQuelle est la tension du gÃ©nÃ©rateur sur le base? "))
+        self.m_beta_reponse = float(input(reponse[1]))
+        self.m_e = float(input(demande[3]))
 
         #CALCUL ET RETOUR
         self.m_rb = (self.m_e - self.m_vbesat[self.m_vbe_reponse-1])/((2*self.m_icsat)/self.m_beta_min[self.m_beta_reponse-1])
@@ -57,13 +57,13 @@ class T2n2222:
 
     def calculResistanceCircuit(self):
         #DEMANDE DES INFORMATIONS
-        print("De quelle valeur de Ic votre montage ce raproche le plus ?")
+        print(demande[0])
         print(" 1 - 150 mA")
         print(" 2 - 500 mA\n")
-        self.m_vce_reponse = float(input("RÃ©pondez par 1 ou 2: "))
-        self.m_icsat = float(input("\nQuelle valeur de Ic est dans votre montage ? "))
-        self.m_vcc = float(input("\nQuelle est la tension du gÃ©nÃ©rateur sur le montage ? "))
-        self.m_vdiode = float(input("\nQuelle est la tension de la diode ? "))
+        self.m_vce_reponse = float(input(reponse[0]))
+        self.m_icsat = float(input(demande[1]))
+        self.m_vcc = float(input(demande[4]))
+        self.m_vdiode = float(input(demande[5]))
 
         #CALCUL ET RETOUR
         self.m_r = (self.m_vcc - self.m_vcesat[self.m_vce_reponse-1] - self.m_vdiode)/(self.m_icsat)
