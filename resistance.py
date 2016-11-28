@@ -7,6 +7,9 @@ class Resistance:
 		self.courant = 0.0
 		self.anneau = 0.0
 		self.couleur = ""
+        self.resultat = 0.0
+        self.ve = 0.0
+        self.vs = 0.0
         self.r1 = 0
         self.r2 = 0
 
@@ -22,6 +25,20 @@ class Resistance:
 
     def calculPontDiviseurVs(self):
         #DEMANDE D'INFORMATION
-        self.tension = float(input("Quelle est la tension d'entrée ? "))
+        self.ve = float(input("Quelle est la tension d'entrée ? "))
         self.r1 = int(input("Quelle est la valeur de R1 ? "))
         self.r2 = int(input("Quelle est la valeur de R2 ? "))
+
+        #CALCUL ET RETOUR
+        self.resultat = (self.r1/(self.r1 + self.r2))*self.ve
+        return self.resultat
+
+    def calculPontDiviseurR2(self):
+        #DEMANDE D'INFORMATION
+        self.ve = float(input("Quelle est la tension d'entrée ? "))
+        self.vs = float(input("Quelle est la tension de sortie ? "))
+        self.r1 = int(input("Quelle est la valeur de R1 ? "))
+
+        #CALCUL ET RETOUR
+        self.resultat = self.r1 * (self.ve / self.vs) - R1
+        return self.resultat
