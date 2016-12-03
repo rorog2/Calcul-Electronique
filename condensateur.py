@@ -15,7 +15,7 @@ class Condensateur:
 
 		#CALCUL ET RETOUR
 		self.capacite = 1/(2*pi*self.resistance*self.frequence)
-		return float(self.capacite)	#capacite et F
+		return float(self.capacite*(10**6))	#capacite et F
 
 
 	def calculFrequenceCoupure(self):
