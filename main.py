@@ -29,25 +29,38 @@ elif systeme == "Linux":
     effacer = "clear"
 
 #-----------Creation des variable d'objet--------------
-#Divers
 Resistance = Resistance()
 Condensateur = Condensateur()
-#Transistors
-T2n2222 = T2n2222()
-Ttip120 = Ttip120()
-Ttip31c = Ttip31c()
 
 #------------------Initialisation----------------------
+#Boucle principal
+principal = True
 menu = True     #Partie menu principal
 resistance = False      #Partie resistance
 condensateur = False        #Partie transistor
 transistor = False      #Partie condensateur
 quitter = False     #Quitter le programme
 
+#Boucle d'arguments
+caracteristique_transistor = False
+
+#Arguments
+
+arg = sys.argv[1]       #Argument du fichier
+
+#Condition d'argument
+if arg == "caractransistor":
+    principal = False
+    caracteristique_transistor = True
+else:
+    principal = True
+    caracteristique_transistor = False
+
 #------------------------Code--------------------------
 bienvenue()
 
-while True:
+#Boucle principal
+while principal:
     try:
         #Boucle du menu
         if menu:
@@ -90,12 +103,42 @@ while True:
             #Effacement du menu ou valeur fausse
             if choix_menu_principal in liste_menu_principal:
                 resistance = False
+                menu = True
             else:
                 os.system(effacer)
                 print("\nVotre choix n'est pas dans le menu !")
                 time.sleep(3)
                 os.system(effacer)
 
+        #Si condensateur
+        if condensateur:
+            #Choix du menu
+            choix_menu_condensateur = menu_condensateur()
+            if choix_menu_condensateur == 1:
+                resultat = Condensateur.calculCapaciteCondensateur()
+                print("La résistance à appliquer est de: {}".format(resultat))
+            elif choix_menu_condensateur == 2:
+                resultat = Condensateur.calculFrequenceCoupure()
+                print("La tension de sortie est de: {}".format(resultat))
+            elif choix_menu_condensateur == liste_menu_condensateur.__len__():
+                menu = True
+
+            #Effacement du menu ou valeur fausse
+            if choix_menu_condensateur in liste_menu_condensateur:
+                condensateur = False
+                menu = True
+            else:
+                os.system(effacer)
+                print("\nVotre choix n'est pas dans le menu !")
+                time.sleep(3)
+                os.system(effacer)
+
+        #Si quitter
+        if quitter:
+            os.system(effacer)
+            print("\nVous allez quitter le programme...")
+            time.sleep(3)
+            sys.exit(0)
 
     #Si interruption du clavier
     except KeyboardInterrupt:
@@ -103,5 +146,11 @@ while True:
         print("\nVous allez quitter la programme...")
         time.sleep(3)
         sys.exit(0)
+
+#+++++++++++++++++++++++++++Separation arguments++++++++++++++++++++++++++++
+if caracteristique_transistor:
+        T2n2222().afficherCaracteristique()
+        Ttip31c().afficherCaracteristique()
+        Ttip120().afficherCaracteristique()
 
 input("Appuyer sur une touche pour continuer...")
