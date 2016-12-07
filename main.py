@@ -148,7 +148,7 @@ while principal:
         sys.exit(0)
 
 #+++++++++++++++++++++++++++Separation arguments++++++++++++++++++++++++++++
-if caracteristique_transistor:
+if caracteristique_transistor == True:
         T2n2222().afficherCaracteristique()
         Ttip31c().afficherCaracteristique()
         Ttip120().afficherCaracteristique()
