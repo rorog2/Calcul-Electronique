@@ -11,7 +11,7 @@ import platform
 #Importation Autre
 from resistance import *
 from condensateur import *
-from menu import *
+#from menu import *
 
 #Importation des transistors
 from transistor.t2n2222 import *
@@ -46,10 +46,11 @@ caracteristique_transistor = False
 
 #Arguments
 
-arg = sys.argv[1]       #Argument du fichier
+arg1 = sys.argv[1]       #Argument du fichier 1
+arg2 = sys.argv[2]		 #Argument du fichier 2
 
 #Condition d'argument
-if arg == "caractransistor":
+if arg1 == "caracteristique":
     principal = False
     caracteristique_transistor = True
 else:
@@ -57,13 +58,13 @@ else:
     caracteristique_transistor = False
 
 #------------------------Code--------------------------
-bienvenue()
 
 #Boucle principal
 while principal:
     try:
+    	bienvenue()
         #Boucle du menu
-        if menu:
+		if menu:
             #Choix du menu
             choix_menu_principal = menu_principal()
             if choix_menu_principal == 1:
